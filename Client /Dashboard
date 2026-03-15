@@ -1,0 +1,5 @@
+src/routes/client/
+│
+├── opportunities/+page.svelte
+├── applications/+page.svelte
+└── deals/+page.svelte
