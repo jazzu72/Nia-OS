@@ -1,0 +1,19 @@
+src/routes/api/
+│
+├── discovery/
+│   └── fetch/+server.ts
+│
+├── graph/
+│   └── build/+server.ts
+│
+├── intelligence/
+│   └── score/+server.ts
+│
+├── kobe/
+│   └── execute/+server.ts
+│
+├── revenue/
+│   └── distribute/+server.ts
+│
+└── vault/
+    └── ledger/+server.ts
