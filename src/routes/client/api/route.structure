@@ -1,0 +1,48 @@
+src/
+└── routes/
+    └── client/
+        ├── +layout.svelte
+        ├── +layout.server.ts
+        ├── +page.svelte                # Client home dashboard
+        │
+        ├── traffic/
+        │   └── +page.svelte            # Traffic analytics
+        │
+        ├── leads/
+        │   ├── +page.svelte            # Lead list
+        │   ├── [id]/
+        │   │   └── +page.svelte        # Lead detail
+        │   └── import/+page.svelte     # CSV upload
+        │
+        ├── scoring/
+        │   └── +page.svelte            # AI lead scoring results
+        │
+        ├── outreach/
+        │   └── +page.svelte            # Outreach automation controls
+        │
+        ├── demos/
+        │   └── +page.svelte            # Demo bookings
+        │
+        ├── proposals/
+        │   ├── +page.svelte            # Proposal list
+        │   └── [id]/+page.svelte       # Proposal detail
+        │
+        ├── invoices/
+        │   ├── +page.svelte            # Invoice list
+        │   └── [id]/+page.svelte       # Invoice detail
+        │
+        ├── reports/
+        │   └── +page.svelte            # Performance analytics
+        │
+        ├── automation/
+        │   └── +page.svelte            # Automation rules
+        │
+        ├── support/
+        │   ├── +page.svelte            # Support center
+        │   └── tickets/
+        │       ├── +page.svelte        # Ticket list
+        │       └── [id]/+page.svelte   # Ticket detail
+        │
+        └── settings/
+            ├── +page.svelte            # Account settings
+            └── api-keys/+page.svelte   # API key management
