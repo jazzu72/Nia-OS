@@ -1,0 +1,10 @@
+{
+ "transaction":"revenue_distribution",
+ "amount":3500,
+ "allocations":{
+   "founder":1400,
+   "treasury":1400,
+   "trust":350,
+   "growth":350
+ }
+}
