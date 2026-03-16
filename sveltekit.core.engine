@@ -1,0 +1,12 @@
+src/lib/core/
+  discovery/
+  leads/
+  scoring/
+  outreach/
+  demos/
+  proposals/
+  billing/
+  revenue/
+  vault/
+  services/
+  intelligence/
