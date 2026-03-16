@@ -1,0 +1,10 @@
+{
+  "transaction": "assignment_fee",
+  "amount": 8500,
+  "allocations": {
+    "founder": 3400,
+    "treasury": 3400,
+    "trust": 850,
+    "growth": 850
+  }
+}
