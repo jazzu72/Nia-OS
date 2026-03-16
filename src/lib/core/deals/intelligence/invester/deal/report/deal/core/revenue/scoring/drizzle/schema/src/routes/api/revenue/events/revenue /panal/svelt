@@ -1,0 +1,99 @@
+<script>
+  let events = [];
+  let summary = [];
+
+  async function load() {
+    const e = await fetch("/api/revenue/events");
+    events = await e.json();
+
+    const s = await fetch("/api/summary");
+    summary = await s.json();
+  }
+
+  load();
+</script>
+
+<h1>Revenue Engine</h1>
+
+<div class="grid">
+  {#each summary as row}
+    <div class="card">
+      <div class="label">{row.walletType}</div>
+      <div class="value">${row.total}</div>
+    </div>
+  {/each}
+</div>
+
+<h2>Recent Revenue Events</h2>
+
+<div class="events">
+  {#each events as ev}
+    <div class="event">
+      <div class="amount">${ev.amount}</div>
+      <div class="alloc">
+        {#each Object.entries(JSON.parse(ev.metadata)) as [k,v]}
+          <span>{k}: ${v}</span>
+        {/each}
+      </div>
+      <div class="time">{new Date(ev.createdAt).toLocaleString()}</div>
+    </div>
+  {/each}
+</div>
+
+<style>
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.card {
+  padding: 16px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top, rgba(0,229,255,0.18), rgba(0,0,0,0.9));
+  border: 1px solid rgba(0,229,255,0.3);
+  box-shadow: 0 0 24px rgba(0,229,255,0.15);
+}
+.label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.value {
+  margin-top: 6px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.event {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(0,229,255,0.25);
+}
+.amount {
+  font-size: 1.2rem;
+  color: #00e5ff;
+  margin-bottom: 6px;
+}
+.alloc span {
+  margin-right: 12px;
+  font-size: 0.85rem;
+  color: #9be7ff;
+}
+.time {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+</style>
