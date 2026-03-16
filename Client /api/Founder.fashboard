@@ -1,0 +1,5 @@
+src/routes/founder/
+│
+├── intelligence/+page.svelte
+├── revenue/+page.svelte
+└── vault/+page.svelte
