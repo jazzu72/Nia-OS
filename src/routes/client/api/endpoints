@@ -1,0 +1,37 @@
+src/
+└── routes/
+    └── api/
+        ├── auth/
+        │   ├── login/+server.ts
+        │   ├── register/+server.ts
+        │   └── api-keys/+server.ts
+        │
+        ├── traffic/
+        │   └── log/+server.ts
+        │
+        ├── leads/
+        │   ├── create/+server.ts
+        │   ├── list/+server.ts
+        │   └── [id]/+server.ts
+        │
+        ├── scoring/
+        │   └── score/+server.ts
+        │
+        ├── outreach/
+        │   └── send/+server.ts
+        │
+        ├── demos/
+        │   └── schedule/+server.ts
+        │
+        ├── proposals/
+        │   └── generate/+server.ts
+        │
+        ├── invoices/
+        │   ├── create/+server.ts
+        │   └── pay/+server.ts
+        │
+        ├── revenue/
+        │   └── distribute/+server.ts
+        │
+        └── vault/
+            └── summary/+server.ts
