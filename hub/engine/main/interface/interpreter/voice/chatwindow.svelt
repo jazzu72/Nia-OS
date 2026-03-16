@@ -1,0 +1,37 @@
+<script>
+  import MessageBubble from "./MessageBubble.svelte";
+  import { interpret } from "../engine/interpreter";
+  import { executeAction } from "../engine/actions";
+
+  export let messages = [];
+  let input = "";
+
+  async function send() {
+    const userMessage = { role: "user", text: input };
+    messages = [...messages, userMessage];
+
+    const intent = await interpret(input);
+    const result = await executeAction(intent);
+
+    const niaMessage = { role: "nia", text: result.reply };
+    messages = [...messages, niaMessage];
+
+    input = "";
+  }
+</script>
+
+<div class="chat">
+  {#each messages as msg}
+    <MessageBubble {msg} />
+  {/each}
+
+  <div class="input-row">
+    <input bind:value={input} placeholder="Ask Nia anything..." />
+    <button on:click={send}>Send</button>
+  </div>
+</div>
+
+<style>
+.chat { display: flex; flex-direction: column; height: 100%; }
+.input-row { display: flex; gap: 10px; margin-top: auto; }
+</style>
