@@ -1,0 +1,32 @@
+<script>
+  let summary = {};
+  let leads = [];
+  let invoices = [];
+
+  async function load() {
+    summary = await (await fetch("/api/vault/summary")).json();
+    leads = await (await fetch("/api/leads/list")).json();
+    invoices = await (await fetch("/api/invoices/list")).json();
+  }
+
+  load();
+</script>
+
+<h1>Client Overview</h1>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">Active Leads</div>
+    <div class="value">{leads.length}</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Unpaid Invoices</div>
+    <div class="value">{invoices.filter(i => i.status === 'pending').length}</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Total Revenue</div>
+    <div class="value">${summary.total}</div>
+  </div>
+</div>
