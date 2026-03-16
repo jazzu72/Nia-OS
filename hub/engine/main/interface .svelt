@@ -1,0 +1,24 @@
+<script>
+  import JarvisFrame from "./components/JarvisFrame.svelte";
+  import ChatStream from "./components/ChatStream.svelte";
+  import HUDPanel from "./components/HUDPanel.svelte";
+
+  let messages = [];
+  let summary = {};
+
+  async function loadSummary() {
+    const res = await fetch("/api/summary");
+    summary = await res.json();
+  }
+
+  loadSummary();
+
+  function onMessage(event) {
+    messages = [...messages, event.detail];
+  }
+</script>
+
+<JarvisFrame>
+  <HUDPanel {summary} />
+  <ChatStream {messages} on:message={onMessage} />
+</JarvisFrame>
