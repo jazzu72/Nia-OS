@@ -1,0 +1,11 @@
+<script>
+  let listening = false;
+
+  function toggle() {
+    listening = !listening;
+  }
+</script>
+
+<button on:click={toggle}>
+  {listening ? "Listening..." : "Voice"}
+</button>
