@@ -1,0 +1,30 @@
+nia-os/
+├── src/
+│   ├── lib/
+│   │   ├── db/
+│   │   │   ├── client.ts
+│   │   │   └── schema.ts
+│   │   ├── core/
+│   │   │   ├── discovery/        # companies discovered
+│   │   │   ├── leads/            # lead db + scoring
+│   │   │   ├── sales/            # outreach, demos, proposals
+│   │   │   ├── billing/          # invoices, payments
+│   │   │   ├── revenue/          # revenue router
+│   │   │   ├── vault/            # ledger, wallets
+│   │   │   ├── services/         # automation delivery
+│   │   │   └── intelligence/     # metrics, optimization
+│   │   └── ui/
+│   │       ├── jarvis/           # Nia interface
+│   │       ├── founder/          # Founder dashboard components
+│   │       └── client/           # Client dashboard components
+│   │
+│   └── routes/
+│       ├── nia/                  # Jarvis surface
+│       ├── founder/              # Founder dashboard
+│       ├── client/               # Client dashboard
+│       └── api/                  # All engines exposed as HTTP
+│
+├── drizzle/
+│   ├── schema.ts
+│   └── migrations/
+└── package.json
