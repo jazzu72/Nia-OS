@@ -1,0 +1,29 @@
+import { investorLeads, investorNotifications } from "../../../../drizzle/schema";
+import { eq, and, gte } from "drizzle-orm";
+
+export async function notifyInvestors(report: DealReport) {
+  // find matching investors (very simple filter for now)
+  const investors = await db
+    .select()
+    .from(investorLeads)
+    .where(
+      and(
+        eq(investorLeads.preferredExit, report.exitStrategy),
+        gte(investorLeads.minScore, report.score)
+      )
+    );
+
+  if (!investors.length) return { notified: 0 };
+
+  const notifications = investors.map((inv) => ({
+    investorId: inv.id,
+    dealReportId: report.id,
+    channel: "email",
+    status: "pending"
+  }));
+
+  await db.insert(investorNotifications).values(notifications);
+
+  // actual email/SMS sending is handled by another service
+  return { notified: investors.length };
+}
