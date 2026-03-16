@@ -1,0 +1,7 @@
+export const invoices = pgTable("invoices", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  clientId: uuid("client_id").references(() => clientProfiles.id),
+  amount: numeric("amount"),
+  status: text("status"),
+  createdAt: timestamp("created_at").defaultNow()
+});
