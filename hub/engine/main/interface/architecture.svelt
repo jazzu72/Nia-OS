@@ -1,0 +1,16 @@
+src/routes/nia/
+│
+├── +page.svelte
+├── components/
+│   ├── JarvisFrame.svelte
+│   ├── ChatStream.svelte
+│   ├── MessageBubble.svelte
+│   ├── VoiceButton.svelte
+│   ├── HUDPanel.svelte
+│   ├── ActionCard.svelte
+│   └── PulseRing.svelte
+│
+└── engine/
+    ├── interpreter.ts
+    ├── actions.ts
+    └── context.ts
